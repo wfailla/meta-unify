@@ -1,0 +1,20 @@
+meta-unify
+==========
+
+This is a yocto layer which holds recipes for the UNIFY project:
+https://www.fp7-unify.eu/
+
+It is supposed to be added onto a CarOS build-host,
+which usually means you have the following additional
+layers: poky, meta-caros, meta-virtualization and some layers 
+of meta-openembedded.
+
+Also see https://github.com/carosio/caros-release
+
+License
+-------
+
+All metadata is MIT licensed unless otherwise stated. Source code included
+in tree for individual recipes is under the LICENSE stated in each recipe
+(.bb file) unless otherwise stated.
+
