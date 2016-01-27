@@ -1,0 +1,14 @@
+[Unit]
+Description=Setup the network of the host in a demo configuration
+Before=autoisis.service
+After=swconfig.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/setup_net.sh
+RemainAfterExit=yes
+TimeoutSec=0
+StandardOutput=syslog
+
+[Install]
+WantedBy=multi-user.target
