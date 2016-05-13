@@ -10,6 +10,7 @@ IMAGE_FEATURES += "splash ssh-server-openssh ${CAROS_IMAGE_FEATURES}"
 IMAGE_INSTALL += "util-linux-setterm"
 IMAGE_INSTALL += "parted btrfs-tools e2fsprogs-mke2fs e2fsprogs-resize2fs e2fsprogs-tune2fs"
 IMAGE_INSTALL += "caros-core"
+IMAGE_INSTALL += "tcpdump curl iperf iperf3 socat"
 IMAGE_INSTALL += "autoisis erlang-unify-hostinfo autoisis-demo"
 
 # having at least 4k blocks allows conversion from ext3 to btrfs
