@@ -19,7 +19,7 @@ The redomat is a simple tool to build an yocto image using a docker container.
 To do so execute:
 
 ```
-redomat.py unify-caros-16.04-lamobo-r1.xml
+redomat.py releases/unify-caros-<version>-lamobo-r1.xml
 ```
 
 This will build a ready to use SD card image for the bananapi.
@@ -31,7 +31,7 @@ be build logs, filesystem images, packages and more. It is possible to serve
 these build artifacts via the Docker container used for building:
 
 ```
-docker run --rm -ti -p <hostport>:80 <IMAGE> /REDO/results/serve.sh
+docker run --rm -ti -p <hostport>:80 <image> /REDO/results/serve.sh
 ```
 
 This will make the build artifacts accessible on `http://localhost:<hostport>`
