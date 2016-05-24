@@ -27,7 +27,7 @@ This will build a ready to use SD card image for the bananapi.
 # How To Serve Build Artifacts
 
 The result of a build is what we call build artifacts. Build artifacts can
-be build logs, filesystem images, packages and more. It is possible to serve
+be build logs, file system images, packages and more. It is possible to serve
 these build artifacts via the Docker container used for building:
 
 ```
@@ -38,7 +38,7 @@ This will make the build artifacts accessible on `http://localhost:<hostport>`
 
 # License
 
-All metadata is MIT licensed unless otherwise stated. Source code included
+All meta data is MIT licensed unless otherwise stated. Source code included
 in tree for individual recipes is under the LICENSE stated in each recipe
 (.bb file) unless otherwise stated.
 
