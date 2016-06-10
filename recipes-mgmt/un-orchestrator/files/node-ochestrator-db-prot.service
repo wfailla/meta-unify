@@ -1,0 +1,12 @@
+[Unit]
+Description=Open vSwitch DB open Port for un-orchestrator
+After=syslog.target openvswitch-switch
+
+[Service]
+Type=oneshot
+Environment="PORT=6632"
+ExecStart=/usr/bin/ovs-appctl -t ovsdb-server ovsdb-server/add-remote ptcp:$PORT
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

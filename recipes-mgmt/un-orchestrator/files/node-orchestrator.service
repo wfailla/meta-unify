@@ -1,0 +1,13 @@
+[Unit]
+Description=Open vSwitch
+Requires=node-ochestrator-db-prot.service
+
+[Service]
+Type=oneshot
+Environment="CONFFILE=/etc/default/node-orchestrator/default-config.ini"
+ExecStart=/usr/bin/node-orchestrator -d $CONFFILE
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
+
