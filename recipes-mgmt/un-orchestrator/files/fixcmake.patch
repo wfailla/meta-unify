@@ -1,0 +1,23 @@
+--- a/CMakeLists.txt    2016-05-27 14:55:53.124121352 +0000
++++ b/CMakeLists.txt    2016-05-27 14:54:43.468120839 +0000
+@@ -451,8 +451,8 @@
+ ENDIF(ENABLE_RESOURCE_MANAGER)
+
+ INCLUDE_DIRECTORIES (
+-	/usr/include/boost
+-	/usr/include/libxml2
++	AFTER SYSTEM "$<1:=>/usr/include/boost"
++	AFTER SYSTEM "$<1:=>/usr/include/libxml2"
+ )
+
+ # Create the executable
+@@ -471,7 +471,7 @@
+
+ TARGET_LINK_LIBRARIES( node-orchestrator
+	libpthread.so
+-	/usr/local/lib/librofl_common.so
++	librofl_common.so
+	libjson_spirit.so
+	libmicrohttpd.so
+	libboost_system.so
+
