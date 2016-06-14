@@ -1,0 +1,27 @@
+From 72fa873ea8f6803928abbdb6991294b038a02d25 Mon Sep 17 00:00:00 2001
+From: Tobias Hintze <thintze+git@tpip.net>
+Date: Tue, 14 Jun 2016 14:46:03 +0200
+Subject: [PATCH] use cross-compile-capable inc-dirs
+
+---
+ orchestrator/CMakeLists.txt | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/orchestrator/CMakeLists.txt b/orchestrator/CMakeLists.txt
+index c0f4107..56cbc1e 100755
+--- a/orchestrator/CMakeLists.txt
++++ b/orchestrator/CMakeLists.txt
+@@ -454,8 +454,8 @@ ENDIF(ENABLE_RESOURCE_MANAGER)
+ 
+ INCLUDE_DIRECTORIES (
+ 	${CMAKE_BINARY_DIR}/externals/include/
+-	/usr/include/boost
+-	/usr/include/libxml2
++	AFTER SYSTEM "$<1:=>/usr/include/boost"
++	AFTER SYSTEM "$<1:=>/usr/include/libxml2"
+ )
+ 
+ LINK_DIRECTORIES(
+-- 
+1.9.1
+
