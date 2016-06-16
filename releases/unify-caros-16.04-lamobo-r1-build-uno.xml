@@ -13,7 +13,7 @@
 
 		<layer name="meta-caros"
 			repo="meta-caros"
-			revision="cc92c864b3b6cf87087555268b18ffef8aa6cd38"
+			revision="f519e0eaaa4a20a151dada31ba276ca4e6c3fd3f"
 			remote="carosio" />
 
 		<layer name="meta-lamobo-r1"
@@ -23,7 +23,7 @@
 
 		<layer name="meta-unify"
 			repo="meta-unify"
-			revision="1fa70ac299bed2327a8cee6a368854a7702be604"
+			revision="49540997cc44ff3d8ccf2b1cd57b107016e9a1ca"
 			remote="carosio" />
 
 		<layer name="meta-openembedded"
