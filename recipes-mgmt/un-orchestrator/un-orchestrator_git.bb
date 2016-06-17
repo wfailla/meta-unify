@@ -10,7 +10,7 @@ PR = "r1"
 SRC_URI = "git://github.com/thz/un-orchestrator.git;branch=build-improvements \
         file://0001-use-cross-compile-capable-inc-dirs.patch \
         file://fix_ISO_C90_warning.patch"
-SRCREV = "041873f96e6a63df11eb0e64e0cd4f492685311e"
+SRCREV = "2208f741463ca26c76b583d36e646a140c0f956f"
 
 DEPENDS = "boost json-spirit libmicrohttpd libvirt openvswitch rofl-common libxml2 ethtool openssl sqlite3"
 RDEPENDS_${PN} = "rofl-common json-spirit libsqlite3 openvswitch"
