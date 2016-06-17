@@ -23,7 +23,7 @@
 
 		<layer name="meta-unify"
 			repo="meta-unify"
-			revision="49540997cc44ff3d8ccf2b1cd57b107016e9a1ca"
+			revision="d7a3af5c8f9ec08b07c4673b063c6931f9f91c35"
 			remote="carosio" />
 
 		<layer name="meta-openembedded"
@@ -64,7 +64,7 @@ RDEPENDS_packagegroup-caros-erlang_remove = "erlang-hello"
 	</buildstage>
 
 	<buildstage id="020-build-core-image">
-		<prestage>015-reposync</prestage>
+		<prestage>010-ubuntu</prestage>
 		<bitbake_target>core-image-unify</bitbake_target>
 	</buildstage>
 </redo>
