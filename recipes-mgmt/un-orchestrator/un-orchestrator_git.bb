@@ -5,12 +5,12 @@ LICENSE = "MPL-2.0"
 LIC_FILES_CHKSUM = "file://COPYRIGHT;md5=385b8aba0b3b88eaa7e5377eefa10f94"
 SECTION = "console/tools"
 
-PR = "r1"
+PR = "r2"
 
-SRC_URI = "git://github.com/thz/un-orchestrator.git;branch=build-improvements \
+SRC_URI = "git://github.com/wfailla/un-orchestrator.git;branch=build-improvements \
         file://0001-use-cross-compile-capable-inc-dirs.patch \
         file://fix_ISO_C90_warning.patch"
-SRCREV = "041873f96e6a63df11eb0e64e0cd4f492685311e"
+SRCREV = "06ebdfa4243085a3bfbdafc9f01e46236f3a2a78"
 
 DEPENDS = "boost json-spirit libmicrohttpd libvirt openvswitch rofl-common libxml2 ethtool openssl sqlite3"
 RDEPENDS_${PN} = "rofl-common json-spirit libsqlite3 openvswitch"
