@@ -4,6 +4,7 @@
 
 		<remote baseurl="git://git.yoctoproject.org/" name="yocto"   />
 		<remote baseurl="git://github.com/carosio/" name="carosio"   />
+		<remote baseurl="git://github.com/wfailla/" name="wf"   />
 		<remote baseurl="git://github.com/openembedded/" name="openembedded"/>
 
 		<baselayer
@@ -14,7 +15,7 @@
 		<layer name="meta-caros"
 			repo="meta-caros"
 			revision="f519e0eaaa4a20a151dada31ba276ca4e6c3fd3f"
-			remote="carosio" />
+			remote="wf" />
 
 		<layer name="meta-lamobo-r1"
 			repo="meta-lamobo-r1"
@@ -23,8 +24,8 @@
 
 		<layer name="meta-unify"
 			repo="meta-unify"
-			revision="d7a3af5c8f9ec08b07c4673b063c6931f9f91c35"
-			remote="carosio" />
+			revision="3fbb5d20b4e8ed2eebd4ae5edb0c2fd3f6d3bd6e"
+			remote="wf" />
 
 		<layer name="meta-openembedded"
 			repo="meta-openembedded"
@@ -51,6 +52,8 @@ RDEPENDS_packagegroup-caros_remove = "influxdb"
 RDEPENDS_packagegroup-caros_remove = "unimux"
 
 RDEPENDS_packagegroup-caros-erlang_remove = "erlang-hello"
+
+IMAGE_INSTALL_append = " un-orchestrator "
 ]]>
 	</local_conf>
 
