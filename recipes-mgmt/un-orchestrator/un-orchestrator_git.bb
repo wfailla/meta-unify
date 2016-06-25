@@ -14,11 +14,11 @@ CAROC_APP_SERVICE_${PN} = "uno.service"
 SRC_URI = "git://github.com/wfailla/un-orchestrator.git;branch=build-improvements \
         file://0001-use-cross-compile-capable-inc-dirs.patch \
         file://fix_ISO_C90_warning.patch \
-        uno.service \
-        EnvironmentFile \
-        remove-bridges.sh \
-        uno-prestart.service \
-        uno-prestart-conf"
+        file://uno.service \
+        file://EnvironmentFile \
+        file://remove-bridges.sh \
+        file://uno-prestart.service \
+        file://uno-prestart-conf"
 SRCREV = "06ebdfa4243085a3bfbdafc9f01e46236f3a2a78"
 
 DEPENDS = "boost json-spirit libmicrohttpd libvirt openvswitch rofl-common libxml2 ethtool openssl sqlite3"
