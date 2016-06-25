@@ -44,9 +44,9 @@ do_install() {
         install -m 0644 ${S}/orchestrator/config/* ${D}${sysconfdir}/default/node-orchestrator
 
         install -d ${D}${sysconfdir}/uno
-        install -m 0755 ${WORKDIR}/remove-bridges.sh ${D}${bindir}/remove-bridges.sh
-        install -m 0644 ${WORKDIR}/EnvironmentFile ${D}${bindir}/env
-        install -m 0644 ${WORKDIR}/uno-prestart-conf ${D}${bindir}/preconf
+        install -m 0755 ${WORKDIR}/remove-bridges.sh ${D}${sysconfdir}/uno/remove-bridges.sh
+        install -m 0644 ${WORKDIR}/EnvironmentFile ${D}${sysconfdir}/uno/env
+        install -m 0644 ${WORKDIR}/uno-prestart-conf ${D}${sysconfdir}/uno/preconf
 
         install -d ${D}${systemd_unitdir}/system
         install -m 0644 ${WORKDIR}/uno-prestart.service ${D}${systemd_unitdir}/system/uno-prestart.service
