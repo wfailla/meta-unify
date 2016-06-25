@@ -14,8 +14,8 @@
 
 		<layer name="meta-caros"
 			repo="meta-caros"
-			revision="f519e0eaaa4a20a151dada31ba276ca4e6c3fd3f"
-			remote="wf" />
+			revision="a20064fcef23dc42c6921f5aae168ab264b609e6"
+			remote="carosio" />
 
 		<layer name="meta-lamobo-r1"
 			repo="meta-lamobo-r1"
@@ -24,7 +24,7 @@
 
 		<layer name="meta-unify"
 			repo="meta-unify"
-			revision="3fbb5d20b4e8ed2eebd4ae5edb0c2fd3f6d3bd6e"
+			revision="f1cfb0ea3d6c5f5d3aa560b8c65748d91e810e3e"
 			remote="wf" />
 
 		<layer name="meta-openembedded"
