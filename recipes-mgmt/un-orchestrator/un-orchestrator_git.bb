@@ -29,6 +29,13 @@ S = "${WORKDIR}/git"
 EXTRA_OECMAKE="-DLOGGING_LEVEL=ORCH_DEBUG_INFO -DBUILD_ExternalProjects=OFF"
 inherit pkgconfig cmake
 
+FILES_${PN} += "${bindir}/remove-bridges.sh \
+    ${bindir}/env \
+    ${bindir}/preconf \
+    ${systemd_unitdir}/uno-prestart.service \
+    ${bindir}/node-orchestrator \
+    ${sysconfdir}/default/node-orchestrator"
+
 do_install() {
         install -d ${D}${bindir}
         install -d ${D}${sysconfdir}/default/node-orchestrator
