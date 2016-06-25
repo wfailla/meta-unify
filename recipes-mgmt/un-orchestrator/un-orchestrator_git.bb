@@ -7,9 +7,9 @@ SECTION = "console/tools"
 
 PR = "r2"
 
-inherit caros-service
+inherit systemd
 
-CAROC_APP_SERVICE_${PN} = "uno.service"
+SYSTEMD_SERVICE_${PN} = "uno.service"
 
 SRC_URI = "git://github.com/wfailla/un-orchestrator.git;branch=build-improvements \
         file://0001-use-cross-compile-capable-inc-dirs.patch \
@@ -32,7 +32,8 @@ inherit pkgconfig cmake
 FILES_${PN} += "${bindir}/remove-bridges.sh \
     ${bindir}/env \
     ${bindir}/preconf \
-    ${systemd_unitdir}/uno-prestart.service \
+    ${systemd_unitdir}/system/uno-prestart.service \
+    ${systemd_unitdir}/system/uno.service \
     ${bindir}/node-orchestrator \
     ${sysconfdir}/default/node-orchestrator"
 
@@ -47,6 +48,7 @@ do_install() {
         install -m 0644 ${WORKDIR}/EnvironmentFile ${D}${bindir}/env
         install -m 0644 ${WORKDIR}/uno-prestart-conf ${D}${bindir}/preconf
 
-        install -d ${D}${systemd_unitdir}
-        install -m 0644 ${WORKDIR}/uno-prestart.service ${D}${systemd_unitdir}/uno-prestart.service
+        install -d ${D}${systemd_unitdir}/system
+        install -m 0644 ${WORKDIR}/uno-prestart.service ${D}${systemd_unitdir}/system/uno-prestart.service
+        install -m 0644 ${WORKDIR}/uno.service ${D}${systemd_unitdir}/system/uno.service
 }
