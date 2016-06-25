@@ -1,0 +1,12 @@
+[Unit]
+Description=un-Orchestrator
+After=uno-prestart.service
+
+[Service]
+EnvironmentFile=/etc/uno/env
+ExecStartPre=/etc/uno/remove-bridges.sh
+ExecStart=/usr/bin/node-orchestrator --d $CONFIG
+Restart=on-failure
+
+[Install]
+WantedBy=network.target
