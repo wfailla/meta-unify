@@ -40,5 +40,6 @@ do_install() {
         install -m 0644 ${WORKDIR}/EnvironmentFile ${D}${bindir}/env
         install -m 0644 ${WORKDIR}/uno-prestart-conf ${D}${bindir}/preconf
 
+        install -d ${D}${systemd_unitdir}
         install -m 0644 ${WORKDIR}/uno-prestart.service ${D}${systemd_unitdir}/uno-prestart.service
 }
