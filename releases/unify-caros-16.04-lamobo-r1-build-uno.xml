@@ -14,8 +14,8 @@
 
 		<layer name="meta-caros"
 			repo="meta-caros"
-			revision="f519e0eaaa4a20a151dada31ba276ca4e6c3fd3f"
-			remote="wf" />
+			revision="a20064fcef23dc42c6921f5aae168ab264b609e6"
+			remote="carosio" />
 
 		<layer name="meta-lamobo-r1"
 			repo="meta-lamobo-r1"
@@ -24,7 +24,7 @@
 
 		<layer name="meta-unify"
 			repo="meta-unify"
-			revision="3fbb5d20b4e8ed2eebd4ae5edb0c2fd3f6d3bd6e"
+			revision="c0007a290377207090027934faa0bb2bfbe2b4e7"
 			remote="wf" />
 
 		<layer name="meta-openembedded"
@@ -53,7 +53,7 @@ RDEPENDS_packagegroup-caros_remove = "unimux"
 
 RDEPENDS_packagegroup-caros-erlang_remove = "erlang-hello"
 
-IMAGE_INSTALL_append = " un-orchestrator "
+IMAGE_INSTALL_append = " un-orchestrator uno-demo-config carosadm "
 ]]>
 	</local_conf>
 
@@ -68,6 +68,8 @@ IMAGE_INSTALL_append = " un-orchestrator "
 
 	<buildstage id="020-build-core-image">
 		<prestage>010-ubuntu</prestage>
+		<reposync />
+		<bitbake_target>-c cleanall un-orchestrator uno-demo-config core-image-unify</bitbake_target>
 		<bitbake_target>core-image-unify</bitbake_target>
 	</buildstage>
 </redo>

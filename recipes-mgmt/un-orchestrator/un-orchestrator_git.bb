@@ -7,18 +7,16 @@ SECTION = "console/tools"
 
 PR = "r2"
 
-inherit caros-service
+inherit systemd
 
-CAROC_APP_SERVICE_${PN} = "uno.service"
+SYSTEMD_SERVICE_${PN} = "uno.service"
 
 SRC_URI = "git://github.com/wfailla/un-orchestrator.git;branch=build-improvements \
         file://0001-use-cross-compile-capable-inc-dirs.patch \
         file://fix_ISO_C90_warning.patch \
-        uno.service \
-        EnvironmentFile \
-        remove-bridges.sh \
-        uno-prestart.service \
-        uno-prestart-conf"
+        file://uno.service \
+        file://EnvironmentFile \
+        file://prestart.sh "
 SRCREV = "06ebdfa4243085a3bfbdafc9f01e46236f3a2a78"
 
 DEPENDS = "boost json-spirit libmicrohttpd libvirt openvswitch rofl-common libxml2 ethtool openssl sqlite3"
@@ -29,6 +27,12 @@ S = "${WORKDIR}/git"
 EXTRA_OECMAKE="-DLOGGING_LEVEL=ORCH_DEBUG_INFO -DBUILD_ExternalProjects=OFF"
 inherit pkgconfig cmake
 
+FILES_${PN} += "${sysconfdir}/uno/prestart.sh \
+    ${sysconfdir}/uno/env \
+    ${systemd_unitdir}/system/uno.service \
+    ${bindir}/node-orchestrator \
+    ${sysconfdir}/default/node-orchestrator"
+
 do_install() {
         install -d ${D}${bindir}
         install -d ${D}${sysconfdir}/default/node-orchestrator
@@ -36,9 +40,9 @@ do_install() {
         install -m 0644 ${S}/orchestrator/config/* ${D}${sysconfdir}/default/node-orchestrator
 
         install -d ${D}${sysconfdir}/uno
-        install -m 0755 ${WORKDIR}/remove-bridges.sh ${D}${bindir}/remove-bridges.sh
-        install -m 0644 ${WORKDIR}/EnvironmentFile ${D}${bindir}/env
-        install -m 0644 ${WORKDIR}/uno-prestart-conf ${D}${bindir}/preconf
+        install -m 0755 ${WORKDIR}/prestart.sh ${D}${sysconfdir}/uno/prestart.sh
+        install -m 0644 ${WORKDIR}/EnvironmentFile ${D}${sysconfdir}/uno/env
 
-        install -m 0644 ${WORKDIR}/uno-prestart.service ${D}${systemd_unitdir}/uno-prestart.service
+        install -d ${D}${systemd_unitdir}/system
+        install -m 0644 ${WORKDIR}/uno.service ${D}${systemd_unitdir}/system/uno.service
 }
