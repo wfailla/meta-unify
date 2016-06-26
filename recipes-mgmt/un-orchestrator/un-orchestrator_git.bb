@@ -16,9 +16,7 @@ SRC_URI = "git://github.com/wfailla/un-orchestrator.git;branch=build-improvement
         file://fix_ISO_C90_warning.patch \
         file://uno.service \
         file://EnvironmentFile \
-        file://remove-bridges.sh \
-        file://uno-prestart.service \
-        file://uno-prestart-conf"
+        file://prestart.sh "
 SRCREV = "06ebdfa4243085a3bfbdafc9f01e46236f3a2a78"
 
 DEPENDS = "boost json-spirit libmicrohttpd libvirt openvswitch rofl-common libxml2 ethtool openssl sqlite3"
