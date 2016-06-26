@@ -29,10 +29,8 @@ S = "${WORKDIR}/git"
 EXTRA_OECMAKE="-DLOGGING_LEVEL=ORCH_DEBUG_INFO -DBUILD_ExternalProjects=OFF"
 inherit pkgconfig cmake
 
-FILES_${PN} += "${bindir}/remove-bridges.sh \
-    ${bindir}/env \
-    ${bindir}/preconf \
-    ${systemd_unitdir}/system/uno-prestart.service \
+FILES_${PN} += "${sysconfdir}/uno/prestart.sh \
+    ${sysconfdir}/uno/env \
     ${systemd_unitdir}/system/uno.service \
     ${bindir}/node-orchestrator \
     ${sysconfdir}/default/node-orchestrator"
@@ -44,11 +42,9 @@ do_install() {
         install -m 0644 ${S}/orchestrator/config/* ${D}${sysconfdir}/default/node-orchestrator
 
         install -d ${D}${sysconfdir}/uno
-        install -m 0755 ${WORKDIR}/remove-bridges.sh ${D}${sysconfdir}/uno/remove-bridges.sh
+        install -m 0755 ${WORKDIR}/prestart.sh ${D}${sysconfdir}/uno/prestart.sh
         install -m 0644 ${WORKDIR}/EnvironmentFile ${D}${sysconfdir}/uno/env
-        install -m 0644 ${WORKDIR}/uno-prestart-conf ${D}${sysconfdir}/uno/preconf
 
         install -d ${D}${systemd_unitdir}/system
-        install -m 0644 ${WORKDIR}/uno-prestart.service ${D}${systemd_unitdir}/system/uno-prestart.service
         install -m 0644 ${WORKDIR}/uno.service ${D}${systemd_unitdir}/system/uno.service
 }
