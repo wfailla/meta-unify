@@ -24,7 +24,7 @@
 
 		<layer name="meta-unify"
 			repo="meta-unify"
-			revision="35df9ad99fdf00c443430487050ca3b6f001ff2c"
+			revision="5958486f7cb43aaf9cadf3c4f6c24a08f2d11cd7"
 			remote="wf" />
 
 		<layer name="meta-openembedded"
@@ -69,7 +69,9 @@ IMAGE_INSTALL_append = " un-orchestrator carosadm "
 	<buildstage id="020-build-core-image">
 		<prestage>010-ubuntu</prestage>
 		<reposync />
-		<bitbake_target>-c cleanall un-orchestrator core-image-unify</bitbake_target>
+		<bitbake_target>-c cleanall un-orchestrator qqqq
+
+			core-image-unify</bitbake_target>
 		<bitbake_target>core-image-unify</bitbake_target>
 	</buildstage>
 </redo>
