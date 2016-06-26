@@ -69,9 +69,7 @@ IMAGE_INSTALL_append = " un-orchestrator carosadm "
 	<buildstage id="020-build-core-image">
 		<prestage>010-ubuntu</prestage>
 		<reposync />
-		<bitbake_target>-c cleanall un-orchestrator qqqq
-
-			core-image-unify</bitbake_target>
+		<bitbake_target>-c cleanall un-orchestrator core-image-unify</bitbake_target>
 		<bitbake_target>core-image-unify</bitbake_target>
 	</buildstage>
 </redo>
