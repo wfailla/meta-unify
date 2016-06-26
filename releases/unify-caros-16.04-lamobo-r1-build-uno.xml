@@ -24,7 +24,7 @@
 
 		<layer name="meta-unify"
 			repo="meta-unify"
-			revision="5958486f7cb43aaf9cadf3c4f6c24a08f2d11cd7"
+			revision="28a86697ce52c881ace718affa6b4ebc9b1db98f"
 			remote="wf" />
 
 		<layer name="meta-openembedded"
@@ -53,7 +53,7 @@ RDEPENDS_packagegroup-caros_remove = "unimux"
 
 RDEPENDS_packagegroup-caros-erlang_remove = "erlang-hello"
 
-IMAGE_INSTALL_append = " un-orchestrator carosadm "
+IMAGE_INSTALL_append = " un-orchestrator uno-demo-config carosadm "
 ]]>
 	</local_conf>
 
@@ -69,7 +69,7 @@ IMAGE_INSTALL_append = " un-orchestrator carosadm "
 	<buildstage id="020-build-core-image">
 		<prestage>010-ubuntu</prestage>
 		<reposync />
-		<bitbake_target>-c cleanall un-orchestrator core-image-unify</bitbake_target>
+		<bitbake_target>-c cleanall un-orchestrator uno-demo-config core-image-unify</bitbake_target>
 		<bitbake_target>core-image-unify</bitbake_target>
 	</buildstage>
 </redo>
