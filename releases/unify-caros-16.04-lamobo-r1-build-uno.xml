@@ -24,7 +24,7 @@
 
 		<layer name="meta-unify"
 			repo="meta-unify"
-			revision="28a86697ce52c881ace718affa6b4ebc9b1db98f"
+			revision="66b38b521a13031374d8263ee2178beda1cb34a7"
 			remote="wf" />
 
 		<layer name="meta-openembedded"
