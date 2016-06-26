@@ -1,7 +1,7 @@
 SUMMARY = "Universal Node orchestrator demo"
 DESCRIPTION = "The Universal Node orchestrator demo configuration pass through"
 HOMEPAGE = "https://github.com/bisdn/un-orchestrator"
-LICENSE = "other"
+LICENSE = "CLOSED"
 
 PR = "r1"
 
