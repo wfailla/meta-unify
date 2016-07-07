@@ -12,6 +12,10 @@ SRC_URI[sha256sum] = "1e0de4957bea60bfcff5215664bdfc3cf02c78e2aae9586766a9b4b437
 DEPENDS="python-pip"
 RDEPENDS_${PN} = "python-pip"
 
+FILES_${PN} = "/usr/local/lib/python2.7/dist-packages/gunicorn \
+  /usr/local/lib/python2.7/dist-packages/gunicorn-19.6.0.egg-info \
+  /usr/local/bin"
+
 do_install() {
   pip install -U ${S} --root ${D}
 }
