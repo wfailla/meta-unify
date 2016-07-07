@@ -7,7 +7,7 @@ PR="r0"
 SRC_URI = "file://virtualizer.tar"
 
 DEPENDS="python-pip"
-RDEPENDS_${PN} = "un-orchestrator python-pip gunicorn falcon cython requests"
+RDEPENDS_${PN} = "un-orchestrator python-pip gunicorn falcon python-cython requests"
 
 do_install() {
 
