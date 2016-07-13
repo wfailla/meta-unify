@@ -13,6 +13,10 @@ IMAGE_INSTALL += "caros-core"
 IMAGE_INSTALL += "tcpdump curl iperf iperf3 socat"
 IMAGE_INSTALL += "autoisis erlang-unify-hostinfo autoisis-demo"
 
+IMAGE_INSTALL += "carosadm"
+IMAGE_INSTALL += "un-orchestrator uno-demo-config"
+IMAGE_INSTALL += "virtualizer"
+
 # having at least 4k blocks allows conversion from ext3 to btrfs
 EXTRA_IMAGECMD_ext3 += "-b 4096"
 
