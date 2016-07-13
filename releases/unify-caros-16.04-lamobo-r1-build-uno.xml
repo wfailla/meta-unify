@@ -4,7 +4,6 @@
 
 		<remote baseurl="git://git.yoctoproject.org/" name="yocto"   />
 		<remote baseurl="git://github.com/carosio/" name="carosio"   />
-		<remote baseurl="git://github.com/wfailla/" name="wf"   />
 		<remote baseurl="git://github.com/openembedded/" name="openembedded"/>
 
 		<baselayer
@@ -24,8 +23,8 @@
 
 		<layer name="meta-unify"
 			repo="meta-unify"
-			revision="262e8200bb589b18ec18537cf2f706590945e11e"
-			remote="wf" />
+			revision="364eaff1b5c11dd60030600b2a6ce02e5868c5c9"
+			remote="carosio" />
 
 		<layer name="meta-openembedded"
 			repo="meta-openembedded"
@@ -52,8 +51,6 @@ RDEPENDS_packagegroup-caros_remove = "influxdb"
 RDEPENDS_packagegroup-caros_remove = "unimux"
 
 RDEPENDS_packagegroup-caros-erlang_remove = "erlang-hello"
-
-IMAGE_INSTALL_append = " un-orchestrator uno-demo-config carosadm "
 ]]>
 	</local_conf>
 
@@ -69,7 +66,7 @@ IMAGE_INSTALL_append = " un-orchestrator uno-demo-config carosadm "
 	<buildstage id="020-build-core-image">
 		<prestage>010-ubuntu</prestage>
 		<reposync />
-		<bitbake_target>-c cleanall un-orchestrator uno-demo-config core-image-unify</bitbake_target>
+		<bitbake_target>-c cleanall un-orchestrator uno-demo-config virtualizer core-image-unify</bitbake_target>
 		<bitbake_target>core-image-unify</bitbake_target>
 	</buildstage>
 </redo>
