@@ -1,17 +1,31 @@
-From 72fa873ea8f6803928abbdb6991294b038a02d25 Mon Sep 17 00:00:00 2001
+From 731f7f7b5a19f882eb6e3fb30966da8191986514 Mon Sep 17 00:00:00 2001
 From: Tobias Hintze <thintze+git@tpip.net>
-Date: Tue, 14 Jun 2016 14:46:03 +0200
+Date: Wed, 13 Jul 2016 10:23:03 +0200
 Subject: [PATCH] use cross-compile-capable inc-dirs
 
 ---
- orchestrator/CMakeLists.txt | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ name-resolver/CMakeLists.txt | 2 +-
+ orchestrator/CMakeLists.txt  | 4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
 
+diff --git a/name-resolver/CMakeLists.txt b/name-resolver/CMakeLists.txt
+index 97bf026..6f3ec73 100644
+--- a/name-resolver/CMakeLists.txt
++++ b/name-resolver/CMakeLists.txt
+@@ -95,7 +95,7 @@ SET(SOURCES
+ 
+ INCLUDE_DIRECTORIES (
+ 	${CMAKE_BINARY_DIR}/externals/include/
+-	/usr/include/libxml2
++	AFTER SYSTEM "$<1:=>/usr/include/libxml2"
+ )
+ 
+ SET(CMAKE_SKIP_RPATH TRUE)
 diff --git a/orchestrator/CMakeLists.txt b/orchestrator/CMakeLists.txt
-index c0f4107..56cbc1e 100755
+index 100d5b6..9832b6f 100755
 --- a/orchestrator/CMakeLists.txt
 +++ b/orchestrator/CMakeLists.txt
-@@ -454,8 +454,8 @@ ENDIF(ENABLE_RESOURCE_MANAGER)
+@@ -440,8 +440,8 @@ ENDIF(ENABLE_RESOURCE_MANAGER)
  
  INCLUDE_DIRECTORIES (
  	${CMAKE_BINARY_DIR}/externals/include/
@@ -21,7 +35,7 @@ index c0f4107..56cbc1e 100755
 +	AFTER SYSTEM "$<1:=>/usr/include/libxml2"
  )
  
- LINK_DIRECTORIES(
+ 
 -- 
 1.9.1
 
