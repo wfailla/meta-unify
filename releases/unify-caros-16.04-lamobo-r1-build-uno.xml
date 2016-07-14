@@ -51,6 +51,9 @@ RDEPENDS_packagegroup-caros_remove = "influxdb"
 RDEPENDS_packagegroup-caros_remove = "unimux"
 
 RDEPENDS_packagegroup-caros-erlang_remove = "erlang-hello"
+
+PREMIRRORS_prepend = "http://nas01/.*  file:///REDO/premirror/ \n"
+
 ]]>
 	</local_conf>
 
@@ -63,8 +66,19 @@ RDEPENDS_packagegroup-caros-erlang_remove = "erlang-hello"
 		<reposync />
 	</buildstage>
 
-	<buildstage id="020-build-core-image">
+	<!--
+		 we use this stage to inject non-public code/fragments
+		 the file is expected in $stagename/$filename, so:
+		 ./015-premirror/virtualizer.tar
+	-->
+	<buildstage id="015-premirror">
 		<prestage>010-ubuntu</prestage>
+		<action>RUN install -d /REDO/premirror</action>
+		<action>ADD virtualizer.tar /REDO/premirror/virtualizer.tar</action>
+	</buildstage>
+
+	<buildstage id="020-build-core-image">
+		<prestage>015-premirror</prestage>
 		<reposync />
 		<bitbake_target>-c cleanall un-orchestrator uno-demo-config virtualizer core-image-unify</bitbake_target>
 		<bitbake_target>core-image-unify</bitbake_target>
