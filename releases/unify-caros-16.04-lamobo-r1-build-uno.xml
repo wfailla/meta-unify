@@ -23,7 +23,7 @@
 
 		<layer name="meta-unify"
 			repo="meta-unify"
-			revision="364eaff1b5c11dd60030600b2a6ce02e5868c5c9"
+			revision="41b6060d511d2029d70f60b7840f8512569a459c"
 			remote="carosio" />
 
 		<layer name="meta-openembedded"
