@@ -16,7 +16,7 @@ S = "${WORKDIR}/virtualizer"
 # SYSTEMD_SERVICE_${PN} += "unify-virtualizer.service"
 
 DEPENDS="python-pip"
-RDEPENDS_${PN} = "un-orchestrator python-pip gunicorn falcon python-cython python-requests"
+RDEPENDS_${PN} = "un-orchestrator gunicorn falcon python-cython python-requests"
 
 do_install() {
 	install -m 0755 -d ${D}/opt/virtualizer/virtualizer_library/
