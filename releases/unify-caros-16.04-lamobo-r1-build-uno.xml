@@ -4,6 +4,7 @@
 
 		<remote baseurl="git://git.yoctoproject.org/" name="yocto"   />
 		<remote baseurl="git://github.com/carosio/" name="carosio"   />
+		<remote baseurl="git://github.com/thz/" name="thz"   />
 		<remote baseurl="git://github.com/openembedded/" name="openembedded"/>
 
 		<baselayer
@@ -13,8 +14,8 @@
 
 		<layer name="meta-caros"
 			repo="meta-caros"
-			revision="a20064fcef23dc42c6921f5aae168ab264b609e6"
-			remote="carosio" />
+			revision="f5be9ae020adf25d827aa48385caa56be60e4333"
+			remote="thz" />
 
 		<layer name="meta-lamobo-r1"
 			repo="meta-lamobo-r1"
@@ -29,7 +30,7 @@
 		<layer name="meta-openembedded"
 			repo="meta-openembedded"
 			revision="c305ac5d2f5285d5eec8952a4ca7f3b4f89aed96"
-			subdirs="meta-oe meta-networking meta-python"
+			subdirs="meta-oe meta-networking meta-python meta-filesystems"
 			remote="openembedded" />
 
 		<layer name="meta-virtualization"
