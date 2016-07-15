@@ -1,0 +1,14 @@
+[Unit]
+Description=un-orchestrator-name-resolver
+Requires=uno.service
+After=uno.service
+
+[Service]
+PIDFile=/run/uno-name-resolver/pid
+WorkingDirectory=/etc/uno-name-resolver
+ExecStart=name-resolver --f config/config.xml
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s TERM $MAINPID
+
+[Install]
+WantedBy=multi-user.target
