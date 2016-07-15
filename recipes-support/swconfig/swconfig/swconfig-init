@@ -27,8 +27,9 @@ $SWCONFIG dev switch0 vlan 3 set ports "8t 1"
 $SWCONFIG dev switch0 port 3 set pvid 5
 $SWCONFIG dev switch0 vlan 5 set ports "8t 3"
 
-# set port 2 for all vlans
-for i in {6..4000}
+# set port 2 for some (8..500) vlans
+i=7
+while [ $(( i=i+1 )) -le 500 ]
 do
     $SWCONFIG dev switch0 vlan $i set ports "2t 8t"
 done
