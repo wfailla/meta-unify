@@ -5,7 +5,7 @@ LICENSE = "MPL-2.0"
 LIC_FILES_CHKSUM = "file://COPYRIGHT;md5=385b8aba0b3b88eaa7e5377eefa10f94"
 SECTION = "console/tools"
 
-PR = "r3"
+PR = "r4"
 
 inherit systemd
 
@@ -27,11 +27,9 @@ S = "${WORKDIR}/git"
 EXTRA_OECMAKE="-DLOGGING_LEVEL=ORCH_DEBUG_INFO -DBUILD_ExternalProjects=OFF"
 inherit pkgconfig cmake
 
-nameresolver_configs += "/etc/uno-name-resolver/config/bng.xml"
-nameresolver_configs += "/etc/uno-name-resolver/config/example.xml"
-nameresolver_configs += "/etc/uno-name-resolver/config/network-functions.xsd"
-
-CONFFILES_${PN} += "$nameresolver_configs"
+CONFFILES_${PN} += "/etc/uno-name-resolver/config/bng.xml"
+CONFFILES_${PN} += "/etc/uno-name-resolver/config/example.xml"
+CONFFILES_${PN} += "/etc/uno-name-resolver/config/network-functions.xsd"
 
 FILES_${PN} += "${sysconfdir}/uno/prestart.sh \
     ${sysconfdir}/uno/env \
@@ -59,10 +57,8 @@ do_install() {
         install -m 0644 ${WORKDIR}/uno-name-resolver.service ${D}${systemd_unitdir}/system/uno-name-resolver.service
 
         # uno-name-resolver config
-        install -d ${D}${sysconfigdir}/uno-name-resolver/config
-        ln -snf . ${S}/etc ; ln -snf . ${S}/uno-name-resolver
-        for x in ${nameresolver_configs} ; do
-          install -m 0644 -o 0 -g 0 ${S}/$x ${D}$x
-        done
-        rm ${S}/etc ${S}/uno-name-resolver
+        install -d ${D}${sysconfdir}/uno-name-resolver/config
+        install -m 0644 -o 0 -g 0 ${S}/name-resolver/config/bng.xml ${D}${sysconfdir}/uno-name-resolver/config/
+        install -m 0644 -o 0 -g 0 ${S}/name-resolver/config/example.xml ${D}${sysconfdir}/uno-name-resolver/config/
+        install -m 0644 -o 0 -g 0 ${S}/name-resolver/config/network-functions.xsd ${D}${sysconfdir}/uno-name-resolver/config/
 }
