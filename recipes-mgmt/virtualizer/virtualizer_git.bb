@@ -2,7 +2,7 @@ SUMMARY="Intermediate module sitting between un-orchestrator and upper layers of
 DESCRIPTION="The Virtualizer is an intermediate module sit between the un-orchestrator and the upper layers of the Unify architecture."
 LICENSE="CLOSED"
 
-PR="r2"
+PR="r3"
 
 SRC_URI = "http://nas01/wfailla/unify/virtualizer.tar"
 SRC_URI += "file://virtualizer.sh"
@@ -12,9 +12,9 @@ SRC_URI[sha256sum] = "b0e05c1d527c02b76f071cc56173835d593f9bdf43de6068407fd53ca2
 
 S = "${WORKDIR}/virtualizer"
 
-# SRC_URI += "file://unify-virtualizer.service"
-# inherit caros-service
-# SYSTEMD_SERVICE_${PN} += "unify-virtualizer.service"
+SRC_URI += "file://unify-virtualizer.service"
+inherit caros-service
+SYSTEMD_SERVICE_${PN} += "unify-virtualizer.service"
 
 DEPENDS="python-pip"
 RDEPENDS_${PN} = "un-orchestrator gunicorn falcon python-cython python-requests"
@@ -48,8 +48,8 @@ do_install() {
 	install -m 0755 -d ${D}/${bindir}
 	install -m 0755 -o 0 -g 0 ${WORKDIR}/virtualizer.sh ${D}/${bindir}/virtualizer
 	
-	# install -d ${D}${systemd_unitdir}/system
-	# install -m 0644 ${WORKDIR}/unify-virtualizer.service ${D}${systemd_unitdir}/system/
+	install -d ${D}${systemd_unitdir}/system
+	install -m 0644 ${WORKDIR}/unify-virtualizer.service ${D}${systemd_unitdir}/system/
 }
 
 FILES_${PN} = "/opt/virtualizer ${bindir}/virtualizer"
