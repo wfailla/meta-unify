@@ -42,8 +42,9 @@ FILES_${PN} += "${sysconfdir}/uno/prestart.sh \
 
 do_install() {
         install -d ${D}${bindir}
-        install -d ${D}${sysconfdir}/default/node-orchestrator
         install -m 0755 ${WORKDIR}/build/orchestrator/node-orchestrator ${D}${bindir}/node-orchestrator
+
+        install -d ${D}${sysconfdir}/default/node-orchestrator
         install -m 0644 ${S}/orchestrator/config/* ${D}${sysconfdir}/default/node-orchestrator
 
         install -m 0755 ${WORKDIR}/build/name-resolver/name-resolver ${D}${bindir}/name-resolver
@@ -52,14 +53,13 @@ do_install() {
         install -m 0755 ${WORKDIR}/prestart.sh ${D}${sysconfdir}/uno/prestart.sh
         install -m 0644 ${WORKDIR}/EnvironmentFile ${D}${sysconfdir}/uno/env
 
+        # systemd units
         install -d ${D}${systemd_unitdir}/system
         install -m 0644 ${WORKDIR}/uno.service ${D}${systemd_unitdir}/system/uno.service
+        install -m 0644 ${WORKDIR}/uno-name-resolver.service ${D}${systemd_unitdir}/system/uno-name-resolver.service
 
         # uno-name-resolver config
-        install -m 0644 ${WORKDIR}/uno.service ${D}${systemd_unitdir}/system/uno-name-resolver.service
-        install -d ${D}${sysconfigdir}/uno-name-resolver
         install -d ${D}${sysconfigdir}/uno-name-resolver/config
-
         ln -snf . ${S}/etc ; ln -snf . ${S}/uno-name-resolver
         for x in ${nameresolver_configs} ; do
           install -m 0644 -o 0 -g 0 ${S}/$x ${D}$x
