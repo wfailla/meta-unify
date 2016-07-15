@@ -12,5 +12,6 @@ SRC_URI[md5sum] = "4b6966e3af362bb4b0043fb6d9b97272"
 SRC_URI[sha256sum] = "18532f28d92e8a3b3097285a986c8bc2ec4573efcd965c85c3fe433b37e65dc4"
 
 DEPENDS="python-pip"
+RDEPENDS_${PN} = "python-six python-modules python-mimeparse"
 
 inherit setuptools
