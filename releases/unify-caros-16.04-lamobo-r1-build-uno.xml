@@ -14,17 +14,17 @@
 
 		<layer name="meta-caros"
 			repo="meta-caros"
-			revision="f5be9ae020adf25d827aa48385caa56be60e4333"
+			revision="1cc0fcd26c6c9628894c7adc77694fd9d9a592bf"
 			remote="thz" />
 
 		<layer name="meta-lamobo-r1"
 			repo="meta-lamobo-r1"
-			revision="670720e76ed58a05bb677c0f6aa3fe518924144b"
+			revision="b842d682bc46fa37e378b3c2738a46c58b096481"
 			remote="carosio" />
 
 		<layer name="meta-unify"
 			repo="meta-unify"
-			revision="a2e80b86d02f5f9fc1cef284624f3df5e24d9de1"
+			revision="600181a3a2d810d85d3d41f49f6bcd34bc22601d"
 			remote="carosio" />
 
 		<layer name="meta-openembedded"
