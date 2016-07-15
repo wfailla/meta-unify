@@ -18,12 +18,12 @@
 
 		<layer name="meta-lamobo-r1"
 			repo="meta-lamobo-r1"
-			revision="979d5d4b6a051e6ac3c8070049e09d3e36a751e3"
+			revision="670720e76ed58a05bb677c0f6aa3fe518924144b"
 			remote="carosio" />
 
 		<layer name="meta-unify"
 			repo="meta-unify"
-			revision="41b6060d511d2029d70f60b7840f8512569a459c"
+			revision="a2e80b86d02f5f9fc1cef284624f3df5e24d9de1"
 			remote="carosio" />
 
 		<layer name="meta-openembedded"
