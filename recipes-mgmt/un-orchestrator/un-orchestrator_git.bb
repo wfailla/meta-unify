@@ -5,26 +5,26 @@ LICENSE = "MPL-2.0"
 LIC_FILES_CHKSUM = "file://COPYRIGHT;md5=385b8aba0b3b88eaa7e5377eefa10f94"
 SECTION = "console/tools"
 
-PR = "r4"
+PR = "r5"
 
 inherit systemd
 
 SYSTEMD_SERVICE_${PN} = "uno.service"
 
-SRC_URI = "git://github.com/thz/un-orchestrator.git;branch=build-improvements \
+SRC_URI = "git://github.com/thz/un-orchestrator.git;branch=buildsystem-improvements \
         file://0001-use-cross-compile-capable-inc-dirs.patch \
         file://uno.service \
         file://uno-name-resolver.service \
         file://EnvironmentFile \
         file://prestart.sh "
-SRCREV = "7a62382315b4d762578549ef9630417325e6d794"
+SRCREV = "24b344d9f43e25cba4fccf55252e79cc4bbd3901"
 
 DEPENDS = "boost json-spirit libmicrohttpd libvirt openvswitch rofl-common libxml2 ethtool openssl sqlite3"
 RDEPENDS_${PN} = "rofl-common json-spirit libsqlite3 openvswitch"
 
 S = "${WORKDIR}/git"
 
-EXTRA_OECMAKE="-DLOGGING_LEVEL=ORCH_DEBUG_INFO -DBUILD_ExternalProjects=OFF"
+EXTRA_OECMAKE="-DENABLE_NATIVE=ON -DENABLE_DOCKER=ON -DLOGGING_LEVEL=ORCH_DEBUG_INFO -DBUILD_ExternalProjects=OFF"
 inherit pkgconfig cmake
 
 CONFFILES_${PN} += "/etc/uno-name-resolver/config/bng.xml"
