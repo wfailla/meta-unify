@@ -16,11 +16,13 @@ $SWCONFIG dev switch0 set enable_jumbo 1
 # lan ports vlan 1-4
 # the switch chip ports map to the physical ports on the board:
 #     LAN      WAN
-# [ 4 0 1 2 ] [ 3 ]
-$SWCONFIG dev switch0 port 4 set pvid 1
-$SWCONFIG dev switch0 vlan 1 set ports "8t 4"
+# [ 2 1 0 4 ] [ 3 ]
+$SWCONFIG dev switch0 port 2 set pvid 4
+$SWCONFIG dev switch0 vlan 4 set ports "8t 2"
+
 $SWCONFIG dev switch0 port 0 set pvid 2
 $SWCONFIG dev switch0 vlan 2 set ports "8t 0"
+
 $SWCONFIG dev switch0 port 1 set pvid 3
 $SWCONFIG dev switch0 vlan 3 set ports "8t 1"
 # wan port vlan 5
@@ -39,6 +41,7 @@ $SWCONFIG dev switch0 set apply 1
 # add vlan interface to eth0
 for v in $(seq 1 5); do
        $IP link add link eth0 name eth0.${v} type vlan id ${v}
+       $IP link set eth0.${v} up
 done
 
 # add additional bridge
