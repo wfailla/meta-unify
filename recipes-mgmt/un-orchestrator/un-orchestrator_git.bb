@@ -5,7 +5,7 @@ LICENSE = "MPL-2.0"
 LIC_FILES_CHKSUM = "file://COPYRIGHT;md5=385b8aba0b3b88eaa7e5377eefa10f94"
 SECTION = "console/tools"
 
-PR = "r5"
+PR = "r6"
 
 inherit systemd
 
@@ -61,4 +61,13 @@ do_install() {
         install -m 0644 -o 0 -g 0 ${S}/name-resolver/config/bng.xml ${D}${sysconfdir}/uno-name-resolver/config/
         install -m 0644 -o 0 -g 0 ${S}/name-resolver/config/example.xml ${D}${sysconfdir}/uno-name-resolver/config/
         install -m 0644 -o 0 -g 0 ${S}/name-resolver/config/network-functions.xsd ${D}${sysconfdir}/uno-name-resolver/config/
+
+        # plugins
+        install -d ${D}${sysconfdir}/uno/compute_controller/plugins/native/
+        install -m 0644 -o 0 -g 0 \
+            ${S}/orchestrator/compute_controller/plugins/native/Capabilities.xsd \
+            ${S}/orchestrator/compute_controller/plugins/native/Capabilities.xml \
+            ${D}${sysconfdir}/uno/compute_controller/plugins/native/
+        ln -snf . ${D}${sysconfdir}/uno/orchestrator
+
 }
