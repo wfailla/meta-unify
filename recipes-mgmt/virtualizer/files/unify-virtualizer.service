@@ -1,12 +1,13 @@
 [Unit]
 Description=un-orchestrator-virtualizer
-Requires=uno.service unify-name-resolver.service
-After=uno.service unify-name-resolver.service
+Requires=uno.service uno-name-resolver.service
+After=uno.service uno-name-resolver.service
 
 [Service]
+RuntimeDirectory=unify-virtualizer
 PIDFile=/run/unify-virtualizer/pid
 WorkingDirectory=/opt/virtualizer
-ExecStart=gunicorn --pid /run/gunicorn/pid -b 0.0.0.0:8001 virtualizer:api
+ExecStart=/usr/bin/gunicorn --pid /run/unify-virtualizer/pid -b 0.0.0.0:8001 virtualizer:api
 ExecReload=/bin/kill -s HUP $MAINPID
 ExecStop=/bin/kill -s TERM $MAINPID
 PrivateTmp=true
