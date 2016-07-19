@@ -1,7 +1,7 @@
 SUMMARY="balancer"
 LICENSE="CLOSED"
 
-PR="r1"
+PR="r2"
 
 SRC_URI = "http://nas01/non-public-unify-stuff/balancer_server.zip"
 SRC_URI += "file://start.sh file://stop.sh"
@@ -15,8 +15,8 @@ do_compile() {
 	oe_runmake balancer_server
 	mkdir -v nf-tar
 	install -m 0755 balancer_server nf-tar/
-	install -m 0755 start.sh nf-tar/
-	install -m 0755 stop.sh nf-tar/
+	install -m 0755 start.sh nf-tar/start
+	install -m 0755 stop.sh nf-tar/stop
 	tar cvfz balancer-nf.tar.gz -C nf-tar .
 }
 
