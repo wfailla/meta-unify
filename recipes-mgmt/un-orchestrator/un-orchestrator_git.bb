@@ -5,7 +5,7 @@ LICENSE = "MPL-2.0"
 LIC_FILES_CHKSUM = "file://COPYRIGHT;md5=385b8aba0b3b88eaa7e5377eefa10f94"
 SECTION = "console/tools"
 
-PR = "r6"
+PR = "r7"
 
 inherit systemd
 
@@ -15,7 +15,6 @@ SRC_URI = "git://github.com/thz/un-orchestrator.git;branch=buildsystem-improveme
         file://0001-use-cross-compile-capable-inc-dirs.patch \
         file://uno.service \
         file://uno-name-resolver.service \
-        file://EnvironmentFile \
         file://prestart.sh "
 SRCREV = "24b344d9f43e25cba4fccf55252e79cc4bbd3901"
 
@@ -49,7 +48,6 @@ do_install() {
 
         install -d ${D}${sysconfdir}/uno
         install -m 0755 ${WORKDIR}/prestart.sh ${D}${sysconfdir}/uno/prestart.sh
-        install -m 0644 ${WORKDIR}/EnvironmentFile ${D}${sysconfdir}/uno/env
 
         # systemd units
         install -d ${D}${systemd_unitdir}/system
