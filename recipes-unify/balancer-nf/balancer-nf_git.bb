@@ -1,7 +1,7 @@
 SUMMARY="balancer"
 LICENSE="CLOSED"
 
-PR="r2"
+PR="r3"
 
 SRC_URI = "http://nas01/non-public-unify-stuff/balancer_server.zip"
 SRC_URI += "file://start.sh file://stop.sh"
@@ -23,6 +23,7 @@ do_compile() {
 do_install() {
 	install -m 0755 -d ${D}/opt/unify/NFs/
 	install -m 0644 -o 0 -g 0 ${WORKDIR}/balancer-nf.tar.gz ${D}/opt/unify/NFs/
+    install -m 0755 -o 0 -g 0 ${WORKDIR}/balancer_server ${D}/usr/bin/
 }
 
 FILES_${PN} = "/opt/unify"
