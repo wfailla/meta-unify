@@ -4,6 +4,7 @@ Requires=uno.service
 After=uno.service
 
 [Service]
+RuntimeDirectory=uno-name-resolver
 PIDFile=/run/uno-name-resolver/pid
 WorkingDirectory=/etc/uno-name-resolver
 ExecStart=/usr/bin/name-resolver --f config/config.xml
