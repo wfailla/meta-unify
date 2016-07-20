@@ -23,7 +23,8 @@ do_compile() {
 do_install() {
 	install -m 0755 -d ${D}/opt/unify/NFs/
 	install -m 0644 -o 0 -g 0 ${WORKDIR}/balancer-nf.tar.gz ${D}/opt/unify/NFs/
-    install -m 0755 -o 0 -g 0 ${WORKDIR}/balancer_server ${D}/usr/bin/
+	install -d ${D}${bindir}
+	install -m 0755 -o 0 -g 0 ${WORKDIR}/balancer_server ${D}${bindir}
 }
 
 FILES_${PN} = "/opt/unify"
