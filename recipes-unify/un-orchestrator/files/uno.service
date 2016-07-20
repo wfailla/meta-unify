@@ -1,7 +1,7 @@
 [Unit]
 Description=un-Orchestrator
-Requires=openvswitch-switch.service
-After=openvswitch-switch.service
+Requires=openvswitch-nonetwork.service
+After=openvswitch-nonetwork.service
 
 [Service]
 EnvironmentFile=/etc/uno/env
