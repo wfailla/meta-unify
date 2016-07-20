@@ -1,11 +1,14 @@
 [Unit]
 Description=un-Orchestrator
-Requires=openvswitch-nonetwork.service
+Requires=openvswitch-switch.service
+After=openvswitch-switch.service
 
 [Service]
 EnvironmentFile=/etc/uno/env
+ExecStartPre=/bin/sleep 20
 ExecStartPre=/etc/uno/prestart.sh
 ExecStart=/usr/bin/node-orchestrator --d $CONFIG
+ExecStartPost=/bin/sleep 15
 Restart=on-failure
 WorkingDirectory=/etc/uno
 
