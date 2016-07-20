@@ -4,7 +4,7 @@
 SUMMARY = "Image for UNIFY Universal Node"
 LICENSE = "MIT"
 
-PR = "r2"
+PR = "r3"
 
 inherit core-image-caros core-image distro_features_check extrausers
 
@@ -18,6 +18,7 @@ IMAGE_INSTALL += "autoisis erlang-unify-hostinfo autoisis-demo"
 IMAGE_INSTALL += "carosadm"
 IMAGE_INSTALL += "un-orchestrator uno-demo-config"
 IMAGE_INSTALL += "virtualizer"
+IMAGE_INSTALL += "balancer-nf"
 IMAGE_INSTALL += "docker"
 
 # having at least 4k blocks allows conversion from ext3 to btrfs
