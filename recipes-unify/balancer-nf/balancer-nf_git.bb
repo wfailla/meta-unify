@@ -27,5 +27,5 @@ do_install() {
 	install -m 0755 -o 0 -g 0 ${WORKDIR}/balancer_server ${D}${bindir}
 }
 
-FILES_${PN} = "/opt/unify"
+FILES_${PN} = "/opt/unify ${bindir}/balancer_server"
 
