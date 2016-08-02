@@ -14,7 +14,6 @@ S ="${WORKDIR}/git"
 SRC_URI = "git://github.com/zeromq/libzmq.git"
 SRCREV = "5e684172d654cb8d7e8e7ec703e13e96c9536453"
 
-do_configure() {
-        autogen.sh
-        ./configure
+do_configure_prepend() {
+        ${S}/autogen.sh
 }
