@@ -6,9 +6,11 @@ SECTION = "other"
 PR = "r1"
 
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=fc178bcd425090939a8b634d1d6a9594"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=8cc789b082b3d97e1ccc5261f8594d3f"
 
 inherit setuptools3
+
+S = "${WORKDIR}/pynacl-1.0.1/"
 
 RDEPENDS_${PN} += "python3"
 
