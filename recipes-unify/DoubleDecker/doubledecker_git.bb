@@ -12,5 +12,7 @@ inherit setuptools3
 
 S = "${WORKDIR}/git"
 
+RDEPENDS_${PN} += "python3"
+
 SRC_URI = "git://github.com/Acreo/DoubleDecker-py.git"
 SRCREV = "9ddee1b62dcf82ffcc16df72e12d59e736948e04"
