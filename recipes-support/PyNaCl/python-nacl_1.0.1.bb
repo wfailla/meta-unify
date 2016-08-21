@@ -10,8 +10,6 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=fc178bcd425090939a8b634d1d6a9594"
 
 inherit setuptools3
 
-S = "${WORKDIR}/git"
-
 RDEPENDS_${PN} += "python3"
 
 SRC_URI = "https://github.com/pyca/pynacl/archive/1.0.1.tar.gz"
