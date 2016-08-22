@@ -1,0 +1,34 @@
+--- setup.py	2016-08-22 08:01:25.616712967 +0200
++++ setup.py.new	2016-08-22 08:00:40.526710386 +0200
+@@ -94,6 +94,31 @@
+         # If we are forcing bundled installs, compile it
+         return False
+ 
++    # Detect if we have libsodium available
++    import cffi
++
++    ffi = cffi.FFI()
++    ffi.cdef("""
++        int sodium_library_version_major();
++        int sodium_library_version_minor();
++    """)
++
++    try:
++        system = ffi.dlopen("sodium")
++    except OSError:
++        # We couldn't locate libsodium so we'll use the bundled one
++        return False
++
++    if system.sodium_library_version_major() != SODIUM_MAJOR:
++        return False
++
++    if system.sodium_library_version_minor() < SODIUM_MINOR:
++        return False
++
++    # If we got this far then the system library should be good enough
++    return True
++
++
+ class Distribution(Distribution):
+ 
+     def has_c_libraries(self):
