@@ -6,6 +6,7 @@
 		<remote baseurl="git://github.com/carosio/" name="carosio"   />
 		<remote baseurl="git://github.com/thz/" name="thz"   />
 		<remote baseurl="git://github.com/openembedded/" name="openembedded"/>
+		<remote baseurl="git://git.openembedded.org/" name="openembedded-cgit"/>
 
 		<baselayer
 			repo="poky"
@@ -32,6 +33,12 @@
 			revision="c305ac5d2f5285d5eec8952a4ca7f3b4f89aed96"
 			subdirs="meta-oe meta-networking meta-python meta-filesystems"
 			remote="openembedded" />
+
+		<layer name="openembedded-core"
+			repo="openembedded-core"
+			revision="0865a5b8b8fbf478fb4b2310f808bcffff84a091"
+			subdirs="meta"
+			remote="openembedded-cgit" />
 
 		<layer name="meta-virtualization"
 			repo="meta-virtualization"
