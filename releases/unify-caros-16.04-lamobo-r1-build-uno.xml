@@ -5,8 +5,8 @@
 		<remote baseurl="git://git.yoctoproject.org/" name="yocto"   />
 		<remote baseurl="git://github.com/carosio/" name="carosio"   />
 		<remote baseurl="git://github.com/thz/" name="thz"   />
+		<remote baseurl="git://github.com/wfailla/" name="wfailla"   />
 		<remote baseurl="git://github.com/openembedded/" name="openembedded"/>
-		<remote baseurl="git://git.openembedded.org/" name="openembedded-cgit"/>
 
 		<baselayer
 			repo="poky"
@@ -15,8 +15,8 @@
 
 		<layer name="meta-caros"
 			repo="meta-caros"
-			revision="48c6334608df008be56e3782fd987d78eb72a862"
-			remote="thz" />
+			revision="26165b896b6e36877f5a2966444c0304334b0555"
+			remote="carosio" />
 
 		<layer name="meta-lamobo-r1"
 			repo="meta-lamobo-r1"
@@ -25,20 +25,14 @@
 
 		<layer name="meta-unify"
 			repo="meta-unify"
-			revision="0c36a5ec3897e76265f095aab34236a50a2add50"
-			remote="carosio" />
+			revision="remote-test-build-dd-2016-08-21/WIP-DoubleDecker"
+			remote="wfailla" />
 
 		<layer name="meta-openembedded"
 			repo="meta-openembedded"
 			revision="c305ac5d2f5285d5eec8952a4ca7f3b4f89aed96"
 			subdirs="meta-oe meta-networking meta-python meta-filesystems"
 			remote="openembedded" />
-
-		<layer name="openembedded-core"
-			repo="openembedded-core"
-			revision="0865a5b8b8fbf478fb4b2310f808bcffff84a091"
-			subdirs="meta"
-			remote="openembedded-cgit" />
 
 		<layer name="meta-virtualization"
 			repo="meta-virtualization"
@@ -59,6 +53,9 @@ RDEPENDS_packagegroup-caros_remove = "influxdb"
 RDEPENDS_packagegroup-caros_remove = "unimux"
 
 RDEPENDS_packagegroup-caros-erlang_remove = "erlang-hello"
+
+IMAGE_INSTALL_remove = "docker balancer-nf"
+IMAGE_INSTALL_append = " python3-pip "
 
 PREMIRRORS_prepend = "http://nas01/.*  file:///REDO/premirror/ \n"
 
@@ -88,7 +85,8 @@ PREMIRRORS_prepend = "http://nas01/.*  file:///REDO/premirror/ \n"
 	<buildstage id="020-build-core-image">
 		<prestage>015-premirror</prestage>
 		<reposync />
-		<bitbake_target>-c cleanall un-orchestrator uno-demo-config virtualizer core-image-unify</bitbake_target>
+		<bitbake_target>-c cleanall un-orchestrator uno-demo-config virtualizer core-image-unify python3-pip</bitbake_target>
+		<bitbake_target>python3-pip</bitbake_target>
 		<bitbake_target>core-image-unify</bitbake_target>
 	</buildstage>
 </redo>
