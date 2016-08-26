@@ -1,0 +1,1 @@
+LDSHARED += "-Wl,-shared"
