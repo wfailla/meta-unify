@@ -1,0 +1,10 @@
+--- zeromq-4.1.3/configure.ac	2015-06-15 09:43:08.000000000 +0000
++++ zeromq-4.1.3/configure.ac  	2016-08-29 08:21:21.819619335 +0000
+@@ -152,6 +152,7 @@
+         fi
+         AC_DEFINE(ZMQ_HAVE_LINUX, 1, [Have Linux OS])
+         libzmq_on_linux="yes"
++	libzmq_werror="no"
+ 
+         if test "x$libzmq_tipc_support" = "xyes"; then
+             AC_DEFINE(ZMQ_HAVE_TIPC, 1, [Have TIPC support])
