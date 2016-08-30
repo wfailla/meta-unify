@@ -6,13 +6,16 @@ SECTION = "networking"
 PR = "r1"
 
 LICENSE = "GLGPL"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=fc178bcd425090939a8b634d1d6a9594"
+LIC_FILES_CHKSUM = "file://LICENSE;md5sum=40d2542b8c43a3ec2b7f5da31a697b88"
 
-inherit setuptools3
+inherit autotools
 
-S = "${WORKDIR}/git"
+DEPENDS = "libsodium libzmq czmq"
+RDEPENDS = ""
 
-RDEPENDS_${PN} += "python3"
+SRC_URI = "git://github.com/Acreo/DoubleDecker.git"
+SRCREV = "00b702283cf1fc199056138280ea2ede04df37d0"
 
-SRC_URI = "git://github.com/Acreo/DoubleDecker-py.git"
-SRCREV = "9ddee1b62dcf82ffcc16df72e12d59e736948e04"
+#do_configure()_prepend {
+#  ./boot.sh
+#}
