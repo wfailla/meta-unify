@@ -6,12 +6,12 @@ SECTION = "networking"
 PR = "r1"
 
 LICENSE = "GLGPL"
-LIC_FILES_CHKSUM = "file://LICENSE;md5sum=40d2542b8c43a3ec2b7f5da31a697b88"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=40d2542b8c43a3ec2b7f5da31a697b88"
 
 inherit autotools
 
-DEPENDS = "libsodium libzmq czmq"
-RDEPENDS = ""
+DEPENDS = "liburcu json-c pkgconfig libsodium zeromq czmq"
+RDEPENDS = "liburcu json-c pkgconfig libsodium zeromq czmq"
 
 SRC_URI = "git://github.com/Acreo/DoubleDecker.git"
 SRCREV = "00b702283cf1fc199056138280ea2ede04df37d0"
